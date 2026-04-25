@@ -1,0 +1,110 @@
+{
+  "build": {
+  },
+  "cliPackageVersion": "4.4.4",
+  "config": {
+    "dirs": [
+      "./src/trigger"
+    ],
+    "project": "proj_orefvzdpjynwqdomwjvz"
+  },
+  "configPath": "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-48F7ms\\Desktop\\trigger.dev\\trigger.config.mjs",
+  "contentHash": "c8c2888e94c0bd63ce2b115fdaaabe67",
+  "customConditions": [
+  ],
+  "deploy": {
+    "env": {
+    }
+  },
+  "environment": "dev",
+  "externals": [
+    {
+      "name": "import-in-the-middle",
+      "version": "1.11.0"
+    }
+  ],
+  "files": [
+    {
+      "entry": "src/trigger/example.ts",
+      "out": "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-48F7ms\\Desktop\\trigger.dev\\src\\trigger\\example.mjs"
+    },
+    {
+      "entry": "src/trigger/uploadImage.ts",
+      "out": "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-48F7ms\\Desktop\\trigger.dev\\src\\trigger\\uploadImage.mjs"
+    }
+  ],
+  "indexWorkerEntryPoint": "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-48F7ms\\AppData\\Local\\npm-cache\\_npx\\f51a09bd0abf5f10\\node_modules\\trigger.dev\\dist\\esm\\entryPoints\\dev-index-worker.mjs",
+  "otelImportHook": {
+    "include": [
+    ]
+  },
+  "outputHashes": {
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\AppData\\Local\\npm-cache\\_npx\\f51a09bd0abf5f10\\node_modules\\trigger.dev\\dist\\esm\\entryPoints\\dev-index-worker.mjs": "+hXTbJ04NNU",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\AppData\\Local\\npm-cache\\_npx\\f51a09bd0abf5f10\\node_modules\\trigger.dev\\dist\\esm\\entryPoints\\dev-index-worker.mjs.map": "5AA4NJtlUj0",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\AppData\\Local\\npm-cache\\_npx\\f51a09bd0abf5f10\\node_modules\\trigger.dev\\dist\\esm\\entryPoints\\dev-run-worker.mjs": "DztPujpyYGI",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\AppData\\Local\\npm-cache\\_npx\\f51a09bd0abf5f10\\node_modules\\trigger.dev\\dist\\esm\\entryPoints\\dev-run-worker.mjs.map": "d1X/dyk3b9Y",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\Desktop\\trigger.dev\\src\\trigger\\example.mjs": "Buy2Moj24OE",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\Desktop\\trigger.dev\\src\\trigger\\example.mjs.map": "adU+S9AXg3w",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\Desktop\\trigger.dev\\src\\trigger\\uploadImage.mjs": "NFNSATQV4hk",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\Desktop\\trigger.dev\\src\\trigger\\uploadImage.mjs.map": "Us0v5DIWSd8",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\Desktop\\trigger.dev\\trigger.config.mjs": "iqk8d5n1PRE",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\Desktop\\trigger.dev\\trigger.config.mjs.map": "KOHygQZhQvw",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-4DNCWKMJ.mjs": "lzPg2jPPivM",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-4DNCWKMJ.mjs.map": "PHqdxeskei8",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-5A54AS5L.mjs": "xYRSY7qZ5bs",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-5A54AS5L.mjs.map": "LMPzUuAiOIM",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-AJJ5IGFB.mjs": "07hNBseYH2w",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-AJJ5IGFB.mjs.map": "0bqqIyeHiWs",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-BD2PHIXJ.mjs": "BrRNeSjUEGs",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-BD2PHIXJ.mjs.map": "tvcllR0thZU",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-ILQ7NNKW.mjs": "Ag11GZBeqME",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-ILQ7NNKW.mjs.map": "C07xF3tnVow",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-RUGCP7DG.mjs": "osVt3jHH6bg",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-RUGCP7DG.mjs.map": "Cfto1rEL3zA",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-V2NDATIP.mjs": "WEUTCe2NCk0",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\chunk-V2NDATIP.mjs.map": "dFkHpH8GWGY",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\crypto.node-TRQSYNXZ.mjs": "BDjY7zqgDuE",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\crypto.node-TRQSYNXZ.mjs.map": "UOjxhkR7aAk",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\crypto.node-VBQ2RLYX.mjs": "IV+H5eOm91E",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\crypto.node-VBQ2RLYX.mjs.map": "0b4tlwmkM3g",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\esm-K3TZ6WVS.mjs": "QkqN/V+7xwo",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\esm-K3TZ6WVS.mjs.map": "zxo7Rej3NZE",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\esm-WLX3G42W.mjs": "5CTANUgia8Q",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\esm-WLX3G42W.mjs.map": "VON93E1In1A",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-bsd-2FU5BTRR.mjs": "f7eVFuUmlBM",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-bsd-2FU5BTRR.mjs.map": "2DC8rpXPEBw",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-darwin-EIECB227.mjs": "hoRNPlKIpFw",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-darwin-EIECB227.mjs.map": "rj0qNkjuJz4",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-linux-PIDVTKGF.mjs": "BDS5HxQftj4",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-linux-PIDVTKGF.mjs.map": "tEG+W6mjhBA",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-unsupported-MKLHFES6.mjs": "AmeyxPNYKRQ",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-unsupported-MKLHFES6.mjs.map": "9ZilwUzbXwo",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-win-BYJSZUGQ.mjs": "tG+MjaBdTdg",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\getMachineId-win-BYJSZUGQ.mjs.map": "Pz1OdOeVpBE",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\s2s-REDMQIHJ.mjs": "yMh8KVNT8Aw",
+    "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-mQNDwZ\\s2s-REDMQIHJ.mjs.map": "nrnmhRkUeC4"
+  },
+  "outputPath": "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-48F7ms",
+  "packageVersion": "4.4.4",
+  "runWorkerEntryPoint": "C:\\Users\\vishn\\Desktop\\trigger.dev\\.trigger\\tmp\\build-48F7ms\\AppData\\Local\\npm-cache\\_npx\\f51a09bd0abf5f10\\node_modules\\trigger.dev\\dist\\esm\\entryPoints\\dev-run-worker.mjs",
+  "runtime": "node",
+  "sources": {
+    "package.json": {
+      "contentHash": "731eaa762380bf2da4a7f7b58bcebf83",
+      "contents": "eJyFkDFPAzEMhff8CitDJxR6KBLSTUjAwNyxpVJITGt6TU5OehRV/e/ICYVurN/ze372SQHo6Paoe9CFabNBNgEnfSPChJwpRdE6MzfzRveOKqIY8Gg+cqPZM40l6x5OCgBAF8xFxtBvE6z0M3PiHmICESCP6OmdMKw0zGaARyrQaQVwrmk7/PpMHCRu+VqJO5RtYgls+wbyGHPt/bJ4bCxga/HT+QJHjAGjJ7xq93B17G0OO5m3xhpbTWJLBeMkeN3dG2vuLkJhF/OQXKB63tqaTl7zWz3g9PT/yrcDDeFvqbjVWX0DqVdtcw=="
+    },
+    "src/trigger/example.ts": {
+      "contentHash": "6a342e79114110c9d7cf380ab3fb4a98",
+      "contents": "eJxVkMFOwzAQRO/+iiGnVApNofSSqogDB+4gcbaSTbDqeCN70yaK8u/IphJwsWTNvtmdMf3AXrDActeRLyA6nAtctRGsaD33yF7EmyhuG7qUoTmXl312VIqmhNbsguCLrOVP9rb50OGMU/LJFwWYpkKW5Ptr1LNCAWWJdxJoBx7EsNMWvZ5eR6/jD8IYPF3ISfIJP4f40TnjOhjXUGucEbKzwl+wwn63K5K78ACaqB4lIroV8lFEoDogP6A3LmzALWruh1FIIfpX0GF2NfJBz5Z1U0G7ucCCWiasG5yeETPhVtfWcpdnbzFcgZTuLovTN7q4YUeVGJ1ajc+2ZZ8v8RZ2Tahw+B3yJKN3ty1ATyHojir83/LwuH9KRQKrAtZCrZvjNyiKk2U="
+    },
+    "src/trigger/uploadImage.ts": {
+      "contentHash": "f5ed46d5055bb5b8e570bef04ee6ab8e",
+      "contents": "eJyFVF1r2zAUffevuDGjOOA5g409yHhZugVWWlpokocxRqvYN45X2zKS3DYEw37EfuF+yZDkDyVNmZ9k6d57ju45V1lRMS5hDzlLU+Q+SCoeoIENZwW4nyXP1HaQ4ONEJA9u6GRtwpLTUuSMJpnsouWwNQQmTGL52EaYHzd0HLMKYlZustQbh44Ts1JIsGpABCU+gQXk7R0AWsvtJe4IVJzFKESg6ixvZ9eLq5vZ14vl3Wy1/HZ3Of8+8tvoBcYc5X8SFvMvt/PlyHcaRQafNXnDqa4U/EVBU1yq7kS6SZpMlhBwzfnbTAW4CpSj5DsCKgCgoM8zKbGopCDwXh03OqYuCVCxK2PwKrpTFQjsQQWueD4lICTPyjSETZbjORX48cPR5jUtsN+CZgzRpxbS0O6L+VYNv0+FqGMe/KpSFxqIoCUSOrpMtgFv1NaAszMYDWXGLRKA3HL2pIWac864584zuUXeYQPjFjoUtZCwRiXFY5Zg4o5DXacxiMaEQc5Sz11IyqW6me5rKwJIZhvC9WE/XEgrN9yfVTJjpSB2QjATAot1vrsxhxD1F6kop4Ug/T+AkFgdbAC4hPEszUqau4cHAJytmSTgTgzTyZaWSW780H2N/WMshslxnVogsXH80yjq1hMhGcfjCBR1LglIXuMr4P2yXTSW4K1ug8BtGwPTn1GggHXfdONJL3TTKgmYC9SlTtnFSLOuNxvkEMG5XgTqdfBsk7prvejsMbA4Rt9DSQskvQl8SKikpENoelq2M2hrAoiAPtHs4NUJYo5UYucTrwUeWy3q0gNUjn99FO4t44GOJfBmf5jdwN/ff+zdAoWgKTb34xPEjbUwUcS7BKO3mAadoabBj3c/7RHusqaBEPldbYv7YnpXZsxEHceICmldSygZrG6v1LNW8xIT85jbY3iKqx5bhQZRz7sjEL4c9wtryrElIMSmzvOdnvKhXD/mhs/hWWjeVxXzDzQtI+g="
+    },
+    "trigger.config.ts": {
+      "contentHash": "0d61e238b2add3767a0ad96e7641e70c",
+      "contents": "eJxlUE2P0zAUvOdXjHICKTSFShy8FxB7qQQn9oIQQt74JX1d2y/Yz2npqv8dJW3RIi7+mPHM+A2HUZLiGY56jvRJYs8DzuiTBNQfNPEwUFo5mtrsntppU99VFR0XkaPeFq//SF89V8CYZE+dGtTz6ack6qeTG/e/4+GXk3DYT6e6qYBUonIggzqKowXyMnymibxB7WVYoLbFw44Q7BGdhLEoIVMn0WVYqM1P4AzrvRzIQWV2XWHbQ3d0oVOJoGNH5DJ0xxmuJKsssQErDuw9HglZZRzJrS6J36SgsxEyUUrs6CKUCBvB0fHErli/+F8VX4mwUx2zaduXtTnpcptKzG2wxze36ArzQPfXm8Hm/Xq9VEKamLLB3CNA0T56ctt4T5OBpkLNgl+rvz1bzD6qUhg1G2yaG8rxgQNJ0W38kg3eri8pV8V/3F+yt51KMnh3A5KNTgKf6OUvzvO2LI5TNvher9qcutv49Y+mOr++q/4AqEfD1Q=="
+    }
+  },
+  "target": "dev"
+}
