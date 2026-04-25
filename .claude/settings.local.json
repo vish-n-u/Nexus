@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:/Users/vishn/Desktop/trigger.dev\" && npm install @google/generative-ai)"
+    ]
+  }
+}

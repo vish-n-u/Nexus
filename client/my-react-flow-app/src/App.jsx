@@ -14,6 +14,7 @@ import './App.css';
 
 import Sidebar from './components/Sidebar';
 import FlowConsole from './components/FlowConsole';
+import socket from './socket';
 import TextNode from './nodes/TextNode';
 import UploadImageNode from './nodes/UploadImageNode';
 import UploadVideoNode from './nodes/UploadVideoNode';
@@ -46,6 +47,7 @@ export default function App() {
   const [nodes, setNodes] = useState([]);
   const [edges, setEdges] = useState([]);
   const [rfInstance, setRfInstance] = useState(null);
+  const [running, setRunning] = useState(false);
   const wrapperRef = useRef(null);
 
   const onNodesChange = useCallback(
@@ -61,6 +63,44 @@ export default function App() {
   useEffect(() => {
     console.log('nodes:', nodes);
     console.log('edges:', edges);
+  }, [nodes, edges]);
+
+  // Listen for node status updates from the server
+  useEffect(() => {
+    const handler = ({ nodeId, status }) => {
+      // Update the matching node's data.status
+      setNodes((ns) =>
+        ns.map((n) => n.id === nodeId ? { ...n, data: { ...n.data, status } } : n)
+      );
+
+      // Auto-clear success after 5s
+      if (status === 'success') {
+        setTimeout(() => {
+          setNodes((ns) =>
+            ns.map((n) => n.id === nodeId ? { ...n, data: { ...n.data, status: 'idle' } } : n)
+          );
+        }, 5000);
+      }
+    };
+
+    socket.on('nodeStatus', handler);
+    return () => socket.off('nodeStatus', handler);
+  }, []);
+
+  const runWorkflow = useCallback(async () => {
+    if (nodes.length === 0) return;
+    setRunning(true);
+    try {
+      await fetch('http://localhost:3001/run-workflow', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges }),
+      });
+    } catch (err) {
+      console.error('[runWorkflow] failed to reach server:', err);
+    } finally {
+      setRunning(false);
+    }
   }, [nodes, edges]);
 
   /* Click: add node to viewport center */
@@ -94,7 +134,7 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <Sidebar onAddNode={addNode} />
+      <Sidebar onAddNode={addNode} onRun={runWorkflow} running={running} />
 
       <div className="flow-wrapper" ref={wrapperRef} style={{ position: 'relative' }}>
         <ReactFlow

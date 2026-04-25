@@ -126,6 +126,57 @@
   color: var(--text-muted);
 }
 
+.nf-sidebar-run {
+  margin-top: auto;
+  padding: 12px 10px;
+  border-top: 1px solid var(--border);
+}
+
+.nf-run-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.nf-run-btn:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.nf-run-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.nf-run-btn--running {
+  background: #4c1d95;
+}
+
+.nf-run-spinner {
+  width: 11px;
+  height: 11px;
+  border: 2px solid #ffffff55;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: nf-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes nf-spin {
+  to { transform: rotate(360deg); }
+}
+
 /* ════════════════════════════════════════════
    NODE BASE
    ════════════════════════════════════════════ */
@@ -141,6 +192,22 @@
 
 .nf-node:hover {
   border-color: var(--border-2);
+}
+
+/* Status glows */
+.nf-node--running {
+  border-color: #eab308 !important;
+  box-shadow: 0 0 0 2px #eab30844, 0 0 16px #eab30866 !important;
+}
+
+.nf-node--success {
+  border-color: #22c55e !important;
+  box-shadow: 0 0 0 2px #22c55e44, 0 0 16px #22c55e66 !important;
+}
+
+.nf-node--error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px #ef444444, 0 0 16px #ef444466 !important;
 }
 
 .nf-node--selected {

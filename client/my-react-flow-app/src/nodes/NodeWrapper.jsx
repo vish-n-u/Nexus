@@ -1,7 +1,8 @@
-export default function NodeWrapper({ title, icon, color, selected, width = 260, children }) {
+export default function NodeWrapper({ title, icon, color, selected, status, width = 260, children }) {
+  const statusClass = status && status !== 'idle' ? ` nf-node--${status}` : '';
   return (
     <div
-      className={`nf-node${selected ? ' nf-node--selected' : ''}`}
+      className={`nf-node${selected ? ' nf-node--selected' : ''}${statusClass}`}
       style={{ '--ncolor': color, width }}
     >
       <div className="nf-accent" />

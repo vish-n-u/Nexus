@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Handle, Position } from '@xyflow/react';
+import { Handle, Position, useReactFlow } from '@xyflow/react';
 import NodeWrapper from './NodeWrapper';
 
 const COLOR = '#22c55e';
@@ -10,18 +9,18 @@ const TextIcon = () => (
   </svg>
 );
 
-export default function TextNode({ selected }) {
-  const [text, setText] = useState('');
+export default function TextNode({ id, selected, data }) {
+  const { updateNodeData } = useReactFlow();
 
   return (
-    <NodeWrapper title="Text" icon={<TextIcon />} color={COLOR} selected={selected}>
+    <NodeWrapper title="Text" icon={<TextIcon />} color={COLOR} selected={selected} status={data?.status}>
       <div className="nf-field">
         <textarea
           className="nf-textarea nodrag"
           placeholder="Enter text here…"
           rows={4}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={data.text ?? ''}
+          onChange={(e) => updateNodeData(id, { text: e.target.value })}
         />
       </div>
 

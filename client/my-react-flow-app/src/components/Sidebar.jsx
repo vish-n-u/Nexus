@@ -73,7 +73,7 @@ const NODES = [
   },
 ];
 
-export default function Sidebar({ onAddNode }) {
+export default function Sidebar({ onAddNode, onRun, running }) {
   const onDragStart = (e, type) => {
     e.dataTransfer.setData('application/reactflow', type);
     e.dataTransfer.effectAllowed = 'move';
@@ -114,6 +114,28 @@ export default function Sidebar({ onAddNode }) {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="nf-sidebar-run">
+        <button
+          className={`nf-run-btn${running ? ' nf-run-btn--running' : ''}`}
+          onClick={onRun}
+          disabled={running}
+        >
+          {running ? (
+            <>
+              <span className="nf-run-spinner" />
+              Running…
+            </>
+          ) : (
+            <>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Run Workflow
+            </>
+          )}
+        </button>
       </div>
     </aside>
   );

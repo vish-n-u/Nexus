@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Handle, Position, useHandleConnections } from '@xyflow/react';
+import { Handle, Position, useHandleConnections, useReactFlow } from '@xyflow/react';
 import NodeWrapper from './NodeWrapper';
 
 const COLOR = '#f97316';
@@ -12,7 +12,8 @@ const FrameIcon = () => (
   </svg>
 );
 
-export default function ExtractFrameNode({ selected }) {
+export default function ExtractFrameNode({ id, selected, data }) {
+  const { updateNodeData } = useReactFlow();
   const videoConn = useHandleConnections({ type: 'target', id: 'video_url' });
   const videoConnected = videoConn.length > 0;
   const timestampConn = useHandleConnections({ type: 'target', id: 'timestamp' });
@@ -20,7 +21,7 @@ export default function ExtractFrameNode({ selected }) {
   const [timestamp, setTimestamp] = useState('');
 
   return (
-    <NodeWrapper title="Extract Frame" icon={<FrameIcon />} color={COLOR} selected={selected}>
+    <NodeWrapper title="Extract Frame" icon={<FrameIcon />} color={COLOR} selected={selected} status={data?.status}>
       {/* video_url handle */}
       <div className="nf-handle-row nf-handle-row--input">
         <Handle
@@ -64,7 +65,7 @@ export default function ExtractFrameNode({ selected }) {
           className="nf-input nodrag"
           placeholder={timestampConnected ? 'Receiving from connection…' : 'e.g. 5 or 50%'}
           value={timestampConnected ? '' : timestamp}
-          onChange={(e) => setTimestamp(e.target.value)}
+          onChange={(e) => { setTimestamp(e.target.value); updateNodeData(id, { timestamp: e.target.value }); }}
           disabled={timestampConnected}
         />
       </div>

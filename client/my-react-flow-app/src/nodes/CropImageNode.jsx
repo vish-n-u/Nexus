@@ -1,4 +1,4 @@
-import { Handle, Position, useHandleConnections } from '@xyflow/react';
+import { Handle, Position, useHandleConnections, useReactFlow } from '@xyflow/react';
 import { useState } from 'react';
 import NodeWrapper from './NodeWrapper';
 
@@ -12,7 +12,7 @@ const CropIcon = () => (
 );
 
 /* One number field row with its own handle connection check */
-function NumberFieldRow({ handleId, label, defaultVal }) {
+function NumberFieldRow({ handleId, label, defaultVal, onChange }) {
   const connections = useHandleConnections({ type: 'target', id: handleId });
   const connected = connections.length > 0;
   const [value, setValue] = useState(defaultVal);
@@ -33,7 +33,7 @@ function NumberFieldRow({ handleId, label, defaultVal }) {
         type="number"
         className="nf-input nf-input--sm nodrag"
         value={connected ? '' : value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => { setValue(e.target.value); onChange?.(e.target.value); }}
         disabled={connected}
         placeholder={connected ? '—' : ''}
         min={0}
@@ -43,12 +43,13 @@ function NumberFieldRow({ handleId, label, defaultVal }) {
   );
 }
 
-export default function CropImageNode({ selected }) {
+export default function CropImageNode({ id, selected, data }) {
+  const { updateNodeData } = useReactFlow();
   const imageConn = useHandleConnections({ type: 'target', id: 'image_url' });
   const imageConnected = imageConn.length > 0;
 
   return (
-    <NodeWrapper title="Crop Image" icon={<CropIcon />} color={COLOR} selected={selected}>
+    <NodeWrapper title="Crop Image" icon={<CropIcon />} color={COLOR} selected={selected} status={data?.status}>
       {/* image_url handle */}
       <div className="nf-handle-row nf-handle-row--input">
         <Handle
@@ -70,10 +71,10 @@ export default function CropImageNode({ selected }) {
 
       <div className="nf-divider" />
 
-      <NumberFieldRow handleId="x_percent"      label="x %"      defaultVal={0} />
-      <NumberFieldRow handleId="y_percent"      label="y %"      defaultVal={0} />
-      <NumberFieldRow handleId="width_percent"  label="width %"  defaultVal={100} />
-      <NumberFieldRow handleId="height_percent" label="height %"  defaultVal={100} />
+      <NumberFieldRow handleId="x_percent"      label="x %"      defaultVal={0}   onChange={(v) => updateNodeData(id, { x_percent: v })} />
+      <NumberFieldRow handleId="y_percent"      label="y %"      defaultVal={0}   onChange={(v) => updateNodeData(id, { y_percent: v })} />
+      <NumberFieldRow handleId="width_percent"  label="width %"  defaultVal={100} onChange={(v) => updateNodeData(id, { width_percent: v })} />
+      <NumberFieldRow handleId="height_percent" label="height %"  defaultVal={100} onChange={(v) => updateNodeData(id, { height_percent: v })} />
 
       <div className="nf-handle-row nf-handle-row--output">
         <span className="nf-handle-label">output</span>

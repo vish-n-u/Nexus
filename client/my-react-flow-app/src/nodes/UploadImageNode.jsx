@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Handle, Position } from '@xyflow/react';
+import { Handle, Position, useReactFlow } from '@xyflow/react';
 import NodeWrapper from './NodeWrapper';
 
 const COLOR = '#3b82f6';
@@ -12,17 +12,25 @@ const ImageIcon = () => (
   </svg>
 );
 
-export default function UploadImageNode({ selected }) {
+export default function UploadImageNode({ id, selected, data }) {
+  const { updateNodeData } = useReactFlow();
   const [preview, setPreview] = useState(null);
   const inputRef = useRef(null);
 
   const handleChange = (e) => {
     const file = e.target.files?.[0];
-    if (file) setPreview(URL.createObjectURL(file));
+    if (!file) return;
+    setPreview(URL.createObjectURL(file));
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = reader.result.split(',')[1];
+      updateNodeData(id, { fileBase64: base64, fileName: file.name });
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
-    <NodeWrapper title="Upload Image" icon={<ImageIcon />} color={COLOR} selected={selected}>
+    <NodeWrapper title="Upload Image" icon={<ImageIcon />} color={COLOR} selected={selected} status={data?.status}>
       <input
         ref={inputRef}
         type="file"

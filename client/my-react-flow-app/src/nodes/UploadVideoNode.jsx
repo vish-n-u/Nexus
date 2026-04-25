@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Handle, Position } from '@xyflow/react';
+import { Handle, Position, useReactFlow } from '@xyflow/react';
 import NodeWrapper from './NodeWrapper';
 
 const COLOR = '#6366f1';
@@ -11,17 +11,25 @@ const VideoIcon = () => (
   </svg>
 );
 
-export default function UploadVideoNode({ selected }) {
+export default function UploadVideoNode({ id, selected, data }) {
+  const { updateNodeData } = useReactFlow();
   const [videoUrl, setVideoUrl] = useState(null);
   const inputRef = useRef(null);
 
   const handleChange = (e) => {
     const file = e.target.files?.[0];
-    if (file) setVideoUrl(URL.createObjectURL(file));
+    if (!file) return;
+    setVideoUrl(URL.createObjectURL(file));
+    const reader = new FileReader();
+    reader.onload = () => {
+      const base64 = reader.result.split(',')[1];
+      updateNodeData(id, { fileBase64: base64, fileName: file.name });
+    };
+    reader.readAsDataURL(file);
   };
 
   return (
-    <NodeWrapper title="Upload Video" icon={<VideoIcon />} color={COLOR} selected={selected}>
+    <NodeWrapper title="Upload Video" icon={<VideoIcon />} color={COLOR} selected={selected} status={data?.status}>
       <input
         ref={inputRef}
         type="file"

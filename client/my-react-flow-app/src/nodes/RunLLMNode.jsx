@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Handle, Position, useHandleConnections } from '@xyflow/react';
+import { Handle, Position, useHandleConnections, useReactFlow } from '@xyflow/react';
 import NodeWrapper from './NodeWrapper';
 
 const COLOR = '#a855f7';
@@ -12,7 +12,7 @@ const SparkleIcon = () => (
 );
 
 /* Sub-component so useHandleConnections can be called per-handle */
-function ConnectedTextarea({ handleId, label, required, placeholder, rows = 3 }) {
+function ConnectedTextarea({ handleId, label, required, placeholder, rows = 3, onChange }) {
   const connections = useHandleConnections({ type: 'target', id: handleId });
   const connected = connections.length > 0;
   const [value, setValue] = useState('');
@@ -40,26 +40,27 @@ function ConnectedTextarea({ handleId, label, required, placeholder, rows = 3 })
         placeholder={connected ? 'Receiving from connection…' : placeholder}
         rows={rows}
         value={connected ? '' : value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={(e) => { setValue(e.target.value); onChange?.(e.target.value); }}
         disabled={connected}
       />
     </div>
   );
 }
 
-export default function RunLLMNode({ selected }) {
+export default function RunLLMNode({ id, selected, data }) {
+  const { updateNodeData } = useReactFlow();
   const [model, setModel] = useState(MODELS[0]);
   const imagesConn = useHandleConnections({ type: 'target', id: 'images' });
 
   return (
-    <NodeWrapper title="Run LLM" icon={<SparkleIcon />} color={COLOR} selected={selected} width={300}>
+    <NodeWrapper title="Run LLM" icon={<SparkleIcon />} color={COLOR} selected={selected} status={data?.status} width={300}>
       {/* Model dropdown */}
       <div className="nf-field">
         <label className="nf-label">Model</label>
         <select
           className="nf-select nodrag"
           value={model}
-          onChange={(e) => setModel(e.target.value)}
+          onChange={(e) => { setModel(e.target.value); updateNodeData(id, { model: e.target.value }); }}
         >
           {MODELS.map((m) => <option key={m}>{m}</option>)}
         </select>
@@ -71,6 +72,7 @@ export default function RunLLMNode({ selected }) {
         label="System Prompt"
         placeholder="Optional system instructions…"
         rows={2}
+        onChange={(val) => updateNodeData(id, { system_prompt: val })}
       />
 
       {/* User Message – connected textarea */}
@@ -80,6 +82,7 @@ export default function RunLLMNode({ selected }) {
         required
         placeholder="Enter user message…"
         rows={3}
+        onChange={(val) => updateNodeData(id, { user_message: val })}
       />
 
       {/* Images handle (no field — handle only) */}
