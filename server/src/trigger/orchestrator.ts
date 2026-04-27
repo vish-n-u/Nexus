@@ -24,18 +24,27 @@ async function emitStatus(serverUrl: string, nodeId: string, status: NodeStatus)
 function topoSort(nodes: any[], edges: any[]): any[] {
   const inDegree = new Map<string, number>();
   const adj = new Map<string, string[]>();
+  console.log("Topological sort input nodes:", nodes);
+  console.log("Topological sort input edges:", edges);
 
   for (const node of nodes) {
     inDegree.set(node.id, 0);
     adj.set(node.id, []);
   }
+  console.log("Initial inDegree map:", inDegree);
+  console.log("Initial adjacency list:", adj);
   for (const edge of edges) {
     adj.get(edge.source)?.push(edge.target);
     inDegree.set(edge.target, (inDegree.get(edge.target) ?? 0) + 1);
   }
+  console.log("Final inDegree map after processing edges:", inDegree);
+  console.log("Final adjacency list after processing edges:", adj);
 
   const queue = nodes.filter((n) => inDegree.get(n.id) === 0);
   const sorted: any[] = [];
+
+  console.log("Initial queue (nodes with in-degree 0):", queue);
+  console.log("Starting topological sort...",sorted);
 
   while (queue.length > 0) {
     const node = queue.shift()!;
@@ -46,6 +55,8 @@ function topoSort(nodes: any[], edges: any[]): any[] {
       if (deg === 0) queue.push(nodes.find((n) => n.id === neighborId)!);
     }
   }
+
+  console.log("Topological sort result:", sorted);
 
   return sorted;
 }
